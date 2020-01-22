@@ -21,15 +21,17 @@ public class User {
 
     @NotNull
     @Column(name = "position")
-    private String position;
+    private Position position;
 
-    private Access userAccess;
+    @NotNull
+    @Column(name = "admin")
+    private boolean admin;
 
-    public User(String firstName, String lastName, String position, Access access){
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
-        this.setPosition(position);
-        this.setUserAccess(access);
+    public User(String firstName, String lastName, Position position, boolean admin){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.position = position;
+        this.admin = admin;
     }
 
 
@@ -57,19 +59,19 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getPosition() {
+    public Position getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 
-    public Access getUserAccess() {
-        return userAccess;
+    public boolean isAdmin() {
+        return admin;
     }
 
-    public void setUserAccess(Access userAccess) {
-        this.userAccess = userAccess;
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }
